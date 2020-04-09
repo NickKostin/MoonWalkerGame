@@ -37,7 +37,6 @@ namespace FightServer.Services.Implementations
     {
       try
       {
-        // Chirkov_IA не проверяется на true, т.к. false может быть, если такой контейнер уже остановлен. Иначе - эксепшен.
         await this.dockerClient.Containers.StopContainerAsync(containerId, new ContainerStopParameters());
       }
       catch (DockerContainerNotFoundException ex)
@@ -186,7 +185,6 @@ namespace FightServer.Services.Implementations
     {
       try
       {
-        // Chirkov_IA не проверяется на true, т.к. false может быть, если такой контейнер уже запущен. Иначе - эксепшен.
         await this.dockerClient.Containers.StartContainerAsync(containerId, new ContainerStartParameters());
       }
       catch (Exception ex)
